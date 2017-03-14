@@ -1,7 +1,10 @@
 *.class
 
 # Mobile Tools for Java (J2ME)
-.mtj.tmp/ build/**
+.mtj.tmp/
+
+#igonre build files
+build/* .gradle/*
 
 # Package Files #
 *.jar
