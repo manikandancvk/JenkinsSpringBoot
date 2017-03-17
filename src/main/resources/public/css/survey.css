@@ -1,0 +1,39 @@
+body {
+    padding-top: 70px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+.form-horizontal .control-label {
+  font-variant: small-caps;
+}
+
+b {
+  font-variant: small-caps;
+}
+
+
+.nav.navbar-nav li a {
+    color: white;
+    font-weight : 300;
+}
+
+.navbar-header a  {
+    color: white;
+    font-style: normal;
+    font-family: Times New Roman;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.form-horizontal {
+      padding-top: 20px;
+}
+
+.row {
+  padding-bottom: 40px;
+}
+
+.panel-info {
+    border-color: #ffffff;
+}

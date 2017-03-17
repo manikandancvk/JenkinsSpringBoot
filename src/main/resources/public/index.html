@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>SRM Land Surveyors</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/survey.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body onload="initializeListeners();">
+     <!-- Navigation -->
+     <nav role="navigation" class="navbar navbar-fixed-top navbar-light" style="background-color: #09029a;">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">SRM Land Surveyors</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+      <!--   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#">Measure</a>
+            </li>
+            <li>
+              <a href="#">Report</a>
+            </li>
+          </ul>
+        </div> -->
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-info">
+            <div class="panel-heading"><b>Measurements Details</b></div>
+            <div class="col-md-6">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <label for="inDate" class="col-sm-3 control-label">Date</label>
+                  <div class="col-sm-8">
+                    <input type="date" class="form-control" id="inDate" placeholder="11/08/2017">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inClientName" class="col-sm-3 control-label">Client / Company Name</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inClientName" placeholder="Karthick">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inSurveyNumber" class="col-sm-3 control-label">Survey Number</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inSurveyNumber" placeholder="102401024">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inVillage" class="col-sm-3 control-label">Location / Village </label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inVillage" placeholder="Taramani , Chennai">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inNatureOfWork" class="col-sm-3 control-label">Nature of work</label>
+                  <div class="col-sm-8">
+                    <select class="form-control" id="inNatureOfWork">
+                      <option value="1">Boundary</option>
+                      <option value="2">Typographical</option>
+                      <option value="3">Boundary & Typographical</option>
+                      <option value="4">Contour</option>
+                      <option value="5">Road</option>
+                      <option value="6">Cadastral</option>
+                      <option value="7">Building</option>
+                      <option value="8">Hydrographic</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-horizontal">
+
+                <div class="form-group">
+                  <label for="" class="col-sm-3 control-label">Status</label>
+                  <div class="col-sm-3">
+                    <div class="radio">
+                      <label><input type="radio" name="inStatus" checked value="Completed">Completed</label>
+                    </div>
+
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="radio">
+                      <label><input type="radio" name="inStatus" value="In Progress">In Progress</label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="inSurveyorName" class="col-sm-3 control-label">Surveyor Name</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inSurveyorName" placeholder="James">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inJnSurveyorName" class="col-sm-3 control-label">Junior Surveyor Name</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inJnSurveyorName" placeholder="Arun">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inFileNumber" class="col-sm-3 control-label">File Number</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="inFileNumber" placeholder="F01345">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-info">
+            <div class="panel-heading"><b>As Per Field</b></div>
+            <div class="col-md-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Measurement</th>
+                    <th>Summation of Individual Measurement</th>
+                    <th>Total Length</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>North</td>
+                    <td><input type="text" class="form-control soim" /></td>
+                    <td><span id="siomNorthMeasure"></span></td>
+
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>South</td>
+                    <td><input type="text" class="form-control soim" /></td>
+                    <td><span id="siomSouthMeasure"></span></td>
+
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>East</td>
+                    <td><input type="text" class="form-control soim" /></td>
+                    <td><span id="siomEastMeasure"></span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>West</td>
+                    <td><input type="text" class="form-control soim" /></td>
+                    <td><span id="siomWestMeasure"></span></td>
+
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Corner</td>
+                    <td><input type="text" class="form-control soim" /></td>
+                    <td><span id="siomCornerMeasure"></span></td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                  <div class="form-horizontal">
+                    <div class="form-group">
+                      <label for="" class="col-sm-4 control-label">Unit / Metric </label>
+                      <div class="col-sm-8">
+                       <select class="form-control" id="soimUnit">
+                        <option value="1">Metre</option>
+                        <option value="2">Feet</option>
+                        <option value="2">mm</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-info">
+          <div class="panel-heading"><b>Area Details</b></div>
+          <div class="col-md-6">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label for="" class="col-sm-3 control-label">Acres</label>
+                <div class="col-sm-8">
+                  <input type="" class="form-control acreCalField" id="inAcre" placeholder="100">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-horizontal">
+
+              <div class="form-group">
+                <label for="" class="col-sm-3 control-label">Square Metres</label>
+                <div class="col-sm-8">
+                  <input type="" class="form-control" id="smCalField" placeholder="900">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-info">
+          <div class="panel-heading"><b>As Per Field Measurement Book ( FMB ) </b></div>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Measurement</th>
+                <th>Summation of Individual Measurement</th>
+                <th>Total Length</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>North</td>
+                <td><input type="text" class="form-control soimFMB" /></td>
+                <td><span id="siomNorthMeasureFMB"></span></td>
+
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>South</td>
+                <td><input type="text" class="form-control soimFMB" /></td>
+                <td><span id="siomSouthMeasureFMB"></span></td>
+
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>East</td>
+                <td><input type="text" class="form-control soimFMB" /></td>
+                <td><span id="siomEastMeasureFMB"></span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>West</td>
+                <td><input type="text" class="form-control soimFMB" /></td>
+                <td><span id="siomWestMeasureFMB"></span></td>
+
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Corner</td>
+                <td><input type="text" class="form-control soimFMB" /></td>
+                <td><span id="siomCornerMeasureFMB"></span></td>
+
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-8">
+              </div>
+              <div class="col-md-4">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <label for="" class="col-sm-4 control-label">Unit / Metric </label>
+                    <div class="col-sm-8">
+                     <select class="form-control" id="soimFMBUnit">
+                      <option value="1">Metre</option>
+                      <option value="2">Feet</option>
+                      <option value="2">mm</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading"><b>Area Details</b></div>
+        <div class="col-md-6">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="" class="col-sm-3 control-label">Acres</label>
+              <div class="col-sm-8">
+                <input type="" class="form-control acreCalFMB" id="inAcreFmb" placeholder="100" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-horizontal">
+
+            <div class="form-group">
+              <label for="" class="col-sm-3 control-label">Square Metres</label>
+              <div class="col-sm-8">
+                <input type="" class="form-control" id="smCalFMB" placeholder="900">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading"><b>Contour Details</b></div>
+        <div class="col-md-6">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="inCReportNumber" class="col-sm-3 control-label">Report Number</label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control" id="inCReportNumber" placeholder="100">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inCSpotLevel" class="col-sm-3 control-label">Spot Levels</label>
+              <div class="col-sm-3">
+                <input type="email" class="form-control" id="inCSpotLevel" placeholder="100">
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="inCSpotLevelUnit">
+                  <option value="1">Metre</option>
+                  <option value="2">Feet</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inCSpacing" class="col-sm-3 control-label">Spacing</label>
+              <div class="col-sm-1">
+                <label for="inCSpacing" class="col-sm-3 control-label">X</label>
+              </div>
+              <div class="col-sm-2">
+                <input type="email" class="form-control" id="inCSpacingX" placeholder="100">
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="inCSpacingXUnit">
+                  <option value="1">Metre</option>
+                  <option value="2">Feet</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-3 control-label"></label>
+              <div class="col-sm-1">
+                <label for="" class="col-sm-3 control-label">Y</label>
+              </div>
+              <div class="col-sm-2">
+                <input type="email" class="form-control" id="inCSpacingY" placeholder="100">
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="inCSpacingXUnit">
+                  <option value="1">Metre</option>
+                  <option value="2">Feet</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inCSpacing" class="col-sm-3 control-label">Interval</label>
+              <div class="col-sm-3">
+                <input type="email" class="form-control" id="inCSpacingX" placeholder="100">
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="inCSpacingXUnit">
+                  <option value="1">Metre</option>
+                  <option value="2">Feet</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading"><b>Acknowledgement Details</b></div>
+        <div class="col-md-6">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="inAckNumber" class="col-sm-3 control-label">Ack Number</label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control" id="inAckNumber" placeholder="100">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-2">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="inAckNumber" class="col-sm-3 control-label">Documents</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Paper Size</th>
+              <th>Copies</th>
+              <th>Description</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">A4</option>
+                  <option value="2">A3</option>
+                  <option value="3">A2</option>
+                  <option value="4">A1</option>
+                  <option value="5">A0</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+              <td>
+                <select class="form-control" id="">
+                  <option value="1">Boundary Survey Report</option>
+                  <option value="2">Field Measurement Book ( FMB ) </option>
+                  <option value="3">Topo Plan</option>
+                  <option value="4">Site Plan</option>
+                  <option value="5">Countour drawing</option>
+                  <option value="6">Customize</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"><button type="button" class="btn btn-primary" onclick="generateReport();">Acknowledgement</button></div>
+    <div class="col-md-2"><button type="button" class="btn btn-success" onclick="generateBoundaryReport();">Boundary Survey</button></div>
+    <div class="col-md-2"><button type="button" class="btn btn-info" onclick="generateReport();">Countour Survey</button></div>
+
+  </div>
+</div>
+
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/surveyor.js"></script>
+</body>
+</html>
